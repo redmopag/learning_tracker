@@ -4,7 +4,7 @@ import { APP_NAME, ROUTES } from '@/shared/config'
 export function AppLayout() {
   return (
     <div className="app-shell">
-      <header className="topbar">
+      <aside className="sidebar">
         <div>
           <p className="eyebrow">
             Keep learning
@@ -51,7 +51,7 @@ export function AppLayout() {
             Цели
           </Link>
         </nav>
-      </header>
+      </aside>
 
       <main className="content">
         <Outlet />
