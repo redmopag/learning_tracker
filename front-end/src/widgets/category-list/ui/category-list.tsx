@@ -42,7 +42,7 @@ export function CategoryList({ categories }: CategoryListProps) {
                 className="input"
               />
               <div className="card-actions">
-                <button className="button" onClick={() => handleSave(category.id)}>Сохранить</button>
+                <button className="button button-accent" onClick={() => handleSave(category.id)}>Сохранить</button>
                 <button className="button-ghost" onClick={handleCancel}>Отмена</button>
               </div>
             </div>
@@ -50,7 +50,7 @@ export function CategoryList({ categories }: CategoryListProps) {
             <>
               <h4>{category.name}</h4>
               <div className="card-actions">
-                <button className="button-ghost" onClick={() => handleEdit(category)}>
+                <button className="button button-accent" onClick={() => handleEdit(category)}>
                   Редактировать
                 </button>
                 <button

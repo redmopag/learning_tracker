@@ -1,5 +1,6 @@
 import { Book, deleteBook, updateBook } from '@/entities/book'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useState } from 'react'
 
 interface BookListProps {
   books: Book[]
@@ -8,6 +9,7 @@ interface BookListProps {
 export function BookList({ books }: BookListProps) {
   const dispatch = useAppDispatch()
   const categories = useAppSelector(state => state.categories.items)
+  const [editingBookId, setEditingBookId] = useState<string | null>(null)
 
   const getCategoryName = (categoryId: string | null) => {
     return categories.find(cat => cat.id === categoryId)?.name || 'Без категории'
@@ -23,7 +25,27 @@ export function BookList({ books }: BookListProps) {
               <h3>{book.title}</h3>
               <span className="badge">{book.status}</span>
             </div>
-            <p className="muted">{book.author} | {getCategoryName(book.categoryId)}</p>
+
+            {editingBookId === book.id ? (
+              <select
+                className="input"
+                value={book.categoryId ?? ''}
+                onChange={(e) => {
+                  dispatch(updateBook({ id: book.id, categoryId: e.target.value || null }))
+                  setEditingBookId(null)
+                }}
+              >
+                <option value="">Без категории</option>
+                {categories.map(cat => (
+                  <option key={cat.id} value={cat.id}>{cat.name}</option>
+                ))}
+              </select>
+            ) : (
+              <p className="muted" onClick={() => setEditingBookId(book.id)}>
+                {book.author} | {getCategoryName(book.categoryId)} ✎
+              </p>
+            )}
+
             {book.url && <a href={book.url} target="_blank" rel="noopener noreferrer" className="link-button">Перейти к книге</a>}
             
             <div>
@@ -40,13 +62,13 @@ export function BookList({ books }: BookListProps) {
 
             <div className="card-actions">
               <button 
-                className="button"
+                className="button button-accent"
                 onClick={() => dispatch(updateBook({ id: book.id, status: 'in_progress' }))}
               >
                 Начать читать
               </button>
               <button 
-                className="button"
+                className="button button-accent"
                 onClick={() => dispatch(updateBook({ id: book.id, status: 'completed', currentStep: book.totalSteps }))}
               >
                 Прочитано

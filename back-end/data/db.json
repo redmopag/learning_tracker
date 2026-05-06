@@ -5,19 +5,38 @@
       "title": "Алгоритмы",
       "description": "Мощные алгоритмы для мощных парней",
       "url": "https://www.youtube.com/",
-      "categoryId": null,
+      "categoryId": "category-1778043367243-e9i9nt",
       "status": "completed",
       "totalSteps": 10,
       "currentStep": 10
     }
   ],
-  "books": [],
+  "books": [
+    {
+      "id": "book-1778044199541-meltby",
+      "title": "Рецепт Учпочмака",
+      "author": "Лучший повар на свете",
+      "url": "",
+      "categoryId": "category-1778043367243-e9i9nt",
+      "status": "planned",
+      "totalSteps": 10,
+      "currentStep": 0
+    }
+  ],
   "categories": [
     {
       "id": "category-1778043367243-e9i9nt",
       "name": "Алгоритмы"
     }
   ],
-  "goals": [],
+  "goals": [
+    {
+      "id": "goal-1778044253340-0iktlh",
+      "title": "Приготовить учпочкмак",
+      "description": "Чтоб вкусный был",
+      "deadline": "2026-12-12",
+      "relatedItems": []
+    }
+  ],
   "learningSessions": []
 }
