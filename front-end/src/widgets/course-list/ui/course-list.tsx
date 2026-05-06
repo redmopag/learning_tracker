@@ -51,7 +51,6 @@ export function CourseList({ courses }: CourseListProps) {
             {course.url && <a href={course.url} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>Перейти к курсу</a>}
             
             <div>
-.
               <span>Прогресс: {progress}%</span>
               <input 
                 type="range" 
