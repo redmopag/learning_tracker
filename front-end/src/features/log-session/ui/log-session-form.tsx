@@ -1,12 +1,13 @@
 import { useState } from 'react'
-import { createLearningSession, LearningSession } from '@/entities/learning-session'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useBooks } from '@/entities/book'
+import { useCourses } from '@/entities/course'
+import { useLearningSessions, LearningSession } from '@/entities/learning-session'
 import styles from './log-session-form.module.css'
 
 export function LogSessionForm() {
-  const dispatch = useAppDispatch()
-  const courses = useAppSelector(state => state.courses.items)
-  const books = useAppSelector(state => state.books.items)
+  const { createLearningSession } = useLearningSessions()
+  const { courses } = useCourses()
+  const { books } = useBooks()
   
   const [duration, setDuration] = useState(30)
   const [relatedItemId, setRelatedItemId] = useState('')
@@ -23,7 +24,7 @@ export function LogSessionForm() {
       relatedItemId: id,
       type: type as 'course' | 'book',
     }
-    dispatch(createLearningSession(newSession))
+    createLearningSession(newSession)
 
     // Reset form
     setDuration(30)

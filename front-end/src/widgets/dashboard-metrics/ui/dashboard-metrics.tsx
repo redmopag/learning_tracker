@@ -1,12 +1,15 @@
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useBooks } from '@/entities/book'
+import { useCategories } from '@/entities/category'
+import { useCourses } from '@/entities/course'
+import { useLearningSessions } from '@/entities/learning-session'
 import { useMemo } from 'react'
 import styles from './dashboard-metrics.module.css'
 
 export function DashboardMetrics() {
-  const courses = useAppSelector(state => state.courses.items)
-  const books = useAppSelector(state => state.books.items)
-  const learningSessions = useAppSelector(state => state.learningSessions.items)
-  const categories = useAppSelector(state => state.categories.items)
+  const { courses } = useCourses()
+  const { books } = useBooks()
+  const { learningSessions } = useLearningSessions()
+  const { categories } = useCategories()
 
   const stats = useMemo(() => {
     const totalMinutes = learningSessions.reduce((sum, s) => sum + s.duration, 0)

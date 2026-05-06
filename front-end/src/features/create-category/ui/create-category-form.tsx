@@ -1,16 +1,15 @@
-import { createCategory } from '@/entities/category'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { useCategories } from '@/entities/category'
 import { useState } from 'react'
 import styles from './create-category-form.module.css'
 
 export function CreateCategoryForm() {
-  const dispatch = useAppDispatch()
+  const { createCategory } = useCategories()
   const [name, setName] = useState('')
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (!name.trim()) return
-    dispatch(createCategory({ name }))
+    createCategory({ name })
     setName('')
   }
 

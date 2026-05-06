@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { createCourse, Course } from '@/entities/course'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useCategories } from '@/entities/category'
+import { useCourses, Course } from '@/entities/course'
 import styles from './create-course-form.module.css'
 
 export function CreateCourseForm() {
-  const dispatch = useAppDispatch()
-  const categories = useAppSelector(state => state.categories.items)
+  const { createCourse } = useCourses()
+  const { categories } = useCategories()
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [url, setUrl] = useState('')
@@ -25,7 +25,7 @@ export function CreateCourseForm() {
       totalSteps,
       currentStep: 0,
     }
-    dispatch(createCourse(newCourse))
+    createCourse(newCourse)
 
     // Reset form
     setTitle('')

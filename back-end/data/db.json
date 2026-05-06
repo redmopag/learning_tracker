@@ -6,9 +6,9 @@
       "description": "Модный алгоримты",
       "url": "https://www.youtube.com/",
       "categoryId": "category-1778043367243-e9i9nt",
-      "status": "planned",
+      "status": "completed",
       "totalSteps": 10,
-      "currentStep": 1
+      "currentStep": 10
     }
   ],
   "books": [
@@ -47,6 +47,13 @@
     }
   ],
   "learningSessions": [
+    {
+      "id": "session-1778101773323-dkb803",
+      "date": "2026-05-06T21:09:33.273Z",
+      "duration": 30,
+      "relatedItemId": "course-1778045743444-zduuxz",
+      "type": "course"
+    },
     {
       "id": "session-1778045770256-hx76qj",
       "date": "2026-05-06T05:36:10.252Z",

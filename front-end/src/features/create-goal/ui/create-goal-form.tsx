@@ -1,10 +1,9 @@
 import { useState } from 'react'
-import { createGoal, Goal } from '@/entities/goal'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { useGoals, Goal } from '@/entities/goal'
 import styles from './create-goal-form.module.css'
 
 export function CreateGoalForm() {
-  const dispatch = useAppDispatch()
+  const { createGoal } = useGoals()
   
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
@@ -20,7 +19,7 @@ export function CreateGoalForm() {
       deadline: deadline || null,
       relatedItems: [], // This is simplified as per task description
     }
-    dispatch(createGoal(newGoal))
+    createGoal(newGoal)
 
     // Reset form
     setTitle('')

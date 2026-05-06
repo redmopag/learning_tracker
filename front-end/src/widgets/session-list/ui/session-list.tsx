@@ -1,5 +1,6 @@
-import { LearningSession, deleteLearningSession } from '@/entities/learning-session'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useBooks } from '@/entities/book'
+import { useCourses } from '@/entities/course'
+import { LearningSession, useLearningSessions } from '@/entities/learning-session'
 import { useMemo } from 'react'
 import styles from './session-list.module.css'
 
@@ -8,9 +9,9 @@ interface SessionListProps {
 }
 
 export function SessionList({ sessions }: SessionListProps) {
-  const dispatch = useAppDispatch()
-  const courses = useAppSelector(state => state.courses.items)
-  const books = useAppSelector(state => state.books.items)
+  const { deleteLearningSession } = useLearningSessions()
+  const { courses } = useCourses()
+  const { books } = useBooks()
 
   const items = useMemo(() => {
     return sessions.map(session => {
@@ -37,7 +38,7 @@ export function SessionList({ sessions }: SessionListProps) {
             <span className={styles.badge}>{session.duration} мин.</span>
             <button 
               className={styles.buttonGhost}
-              onClick={() => dispatch(deleteLearningSession(session.id))}
+              onClick={() => deleteLearningSession(session.id)}
             >
               Удалить
             </button>

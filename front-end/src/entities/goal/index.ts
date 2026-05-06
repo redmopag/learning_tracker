@@ -1,9 +1,8 @@
 export {
   goalsReducer,
-  createGoal,
-  deleteGoal,
   fetchGoals,
-  updateGoal,
 } from './model/goal-slice'
+
+export { useGoals } from './lib/use-goals'
 
 export type { Goal } from './model/types'

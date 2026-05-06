@@ -1,11 +1,10 @@
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useLearningSessions } from '@/entities/learning-session'
 import { LogSessionForm } from '@/features/log-session'
 import { SessionList } from '@/widgets/session-list'
 import styles from './sessions-page.module.css'
 
 export function SessionsPage() {
-  const sessions = useAppSelector(state => state.learningSessions.items)
-  const status = useAppSelector(state => state.learningSessions.status)
+  const { learningSessions: sessions, status } = useLearningSessions()
 
   return (
     <div className={`${styles.pageShell} ${styles.stack}`}>

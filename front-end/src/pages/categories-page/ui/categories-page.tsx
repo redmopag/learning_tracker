@@ -1,11 +1,10 @@
+import { useCategories } from '@/entities/category'
 import { CreateCategoryForm } from '@/features/create-category'
-import { useAppSelector } from '@/shared/lib/hooks'
 import { CategoryList } from '@/widgets/category-list'
 import styles from './categories-page.module.css'
 
 export function CategoriesPage() {
-  const categories = useAppSelector(state => state.categories.items)
-  const status = useAppSelector(state => state.categories.status)
+  const { categories, status } = useCategories()
 
   return (
     <div className={`${styles.pageShell} ${styles.stack}`}>

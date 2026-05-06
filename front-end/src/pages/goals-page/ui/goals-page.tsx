@@ -1,11 +1,10 @@
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useGoals } from '@/entities/goal'
 import { CreateGoalForm } from '@/features/create-goal'
 import { GoalList } from '@/widgets/goal-list'
 import styles from './goals-page.module.css'
 
 export function GoalsPage() {
-  const goals = useAppSelector(state => state.goals.items)
-  const status = useAppSelector(state => state.goals.status)
+  const { goals, status } = useGoals()
 
   return (
     <div className={`${styles.pageShell} ${styles.stack}`}>

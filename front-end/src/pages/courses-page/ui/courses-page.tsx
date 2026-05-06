@@ -1,11 +1,10 @@
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useCourses } from '@/entities/course'
 import { CreateCourseForm } from '@/features/create-course'
 import { CourseList } from '@/widgets/course-list'
 import styles from './courses-page.module.css'
 
 export function CoursesPage() {
-  const courses = useAppSelector(state => state.courses.items)
-  const status = useAppSelector(state => state.courses.status)
+  const { courses, status } = useCourses()
 
   return (
     <div className={`${styles.pageShell} ${styles.stack}`}>

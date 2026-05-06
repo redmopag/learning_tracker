@@ -1,11 +1,11 @@
 import { useState } from 'react'
-import { createBook, Book } from '@/entities/book'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useBooks, Book } from '@/entities/book'
+import { useCategories } from '@/entities/category'
 import styles from './create-book-form.module.css'
 
 export function CreateBookForm() {
-  const dispatch = useAppDispatch()
-  const categories = useAppSelector(state => state.categories.items)
+  const { createBook } = useBooks()
+  const { categories } = useCategories()
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
   const [url, setUrl] = useState('')
@@ -25,7 +25,7 @@ export function CreateBookForm() {
       totalSteps,
       currentStep: 0,
     }
-    dispatch(createBook(newBook))
+    createBook(newBook)
 
     // Reset form
     setTitle('')

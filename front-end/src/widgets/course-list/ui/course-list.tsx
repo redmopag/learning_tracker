@@ -1,5 +1,5 @@
-import { Course, deleteCourse, updateCourse } from '@/entities/course'
-import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import { useCategories } from '@/entities/category'
+import { Course, useCourses } from '@/entities/course'
 import { useState } from 'react'
 import styles from './course-list.module.css'
 
@@ -8,8 +8,8 @@ interface CourseListProps {
 }
 
 export function CourseList({ courses }: CourseListProps) {
-  const dispatch = useAppDispatch()
-  const categories = useAppSelector(state => state.categories.items)
+  const { updateCourse, deleteCourse } = useCourses()
+  const { categories } = useCategories()
   const [editingCourseId, setEditingCourseId] = useState<string | null>(null)
 
   const getCategoryName = (categoryId: string | null) => {
@@ -32,7 +32,7 @@ export function CourseList({ courses }: CourseListProps) {
                 className={styles.input}
                 value={course.categoryId ?? ''}
                 onChange={(e) => {
-                  dispatch(updateCourse({ id: course.id, categoryId: e.target.value || null }))
+                  updateCourse({ id: course.id, categoryId: e.target.value || null })
                   setEditingCourseId(null)
                 }}
               >
@@ -58,7 +58,7 @@ export function CourseList({ courses }: CourseListProps) {
                 min="0" 
                 max={course.totalSteps} 
                 value={course.currentStep}
-                onChange={(e) => dispatch(updateCourse({ id: course.id, currentStep: Number(e.target.value) }))}
+                onChange={(e) => updateCourse({ id: course.id, currentStep: Number(e.target.value) })}
               />
               <span>{course.currentStep} / {course.totalSteps} шагов</span>
             </div>
@@ -66,19 +66,19 @@ export function CourseList({ courses }: CourseListProps) {
             <div className={styles.cardActions}>
               <button 
                 className={`${styles.button} ${styles.buttonAccent}`}
-                onClick={() => dispatch(updateCourse({ id: course.id, status: 'in_progress' }))}
+                onClick={() => updateCourse({ id: course.id, status: 'in_progress' })}
               >
                 Начать
               </button>
               <button 
                 className={`${styles.button} ${styles.buttonAccent}`}
-                onClick={() => dispatch(updateCourse({ id: course.id, status: 'completed', currentStep: course.totalSteps }))}
+                onClick={() => updateCourse({ id: course.id, status: 'completed', currentStep: course.totalSteps })}
               >
                 Завершить
               </button>
               <button 
                 className={styles.buttonGhost}
-                onClick={() => dispatch(deleteCourse(course.id))}
+                onClick={() => deleteCourse(course.id)}
               >
                 Удалить
               </button>

@@ -1,6 +1,4 @@
-import type { Category } from '@/entities/category'
-import { deleteCategory, updateCategory } from '@/entities/category'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { Category, useCategories } from '@/entities/category'
 import { useState } from 'react'
 import styles from './category-list.module.css'
 
@@ -9,7 +7,7 @@ interface CategoryListProps {
 }
 
 export function CategoryList({ categories }: CategoryListProps) {
-  const dispatch = useAppDispatch()
+  const { updateCategory, deleteCategory } = useCategories()
   const [editingCategoryId, setEditingCategoryId] = useState<string | null>(null)
   const [editedName, setEditedName] = useState('')
 
@@ -20,7 +18,7 @@ export function CategoryList({ categories }: CategoryListProps) {
 
   const handleSave = (id: string) => {
     if (!editedName.trim()) return
-    dispatch(updateCategory({ id, name: editedName }))
+    updateCategory({ id, name: editedName })
     setEditingCategoryId(null)
   }
 
@@ -56,7 +54,7 @@ export function CategoryList({ categories }: CategoryListProps) {
                 </button>
                 <button
                   className={styles.buttonGhost}
-                  onClick={() => dispatch(deleteCategory(category.id))}
+                  onClick={() => deleteCategory(category.id)}
                 >
                   Удалить
                 </button>

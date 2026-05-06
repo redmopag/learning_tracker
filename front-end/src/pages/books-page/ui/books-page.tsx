@@ -1,11 +1,10 @@
-import { useAppSelector } from '@/shared/lib/hooks'
+import { useBooks } from '@/entities/book'
 import { CreateBookForm } from '@/features/create-book'
 import { BookList } from '@/widgets/book-list'
 import styles from './books-page.module.css'
 
 export function BooksPage() {
-  const books = useAppSelector(state => state.books.items)
-  const status = useAppSelector(state => state.books.status)
+  const { books, status } = useBooks()
 
   return (
     <div className={`${styles.pageShell} ${styles.stack}`}>

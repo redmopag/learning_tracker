@@ -1,5 +1,4 @@
-import { Goal, deleteGoal } from '@/entities/goal'
-import { useAppDispatch } from '@/shared/lib/hooks'
+import { Goal, useGoals } from '@/entities/goal'
 import styles from './goal-list.module.css'
 
 interface GoalListProps {
@@ -7,7 +6,7 @@ interface GoalListProps {
 }
 
 export function GoalList({ goals }: GoalListProps) {
-  const dispatch = useAppDispatch()
+  const { deleteGoal } = useGoals()
 
   return (
     <div className={styles.stack}>
@@ -22,7 +21,7 @@ export function GoalList({ goals }: GoalListProps) {
           <div className={styles.cardActions}>
             <button 
               className={styles.buttonGhost}
-              onClick={() => dispatch(deleteGoal(goal.id))}
+              onClick={() => deleteGoal(goal.id)}
             >
               Удалить
             </button>
