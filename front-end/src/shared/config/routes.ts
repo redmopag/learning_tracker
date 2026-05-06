@@ -4,4 +4,5 @@ export const ROUTES = {
   books: '/books',
   sessions: '/sessions',
   goals: '/goals',
+  categories: '/categories',
 } as const

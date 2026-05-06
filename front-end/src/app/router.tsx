@@ -10,6 +10,7 @@ import { CoursesPage } from '@/pages/courses-page'
 import { DashboardPage } from '@/pages/dashboard-page'
 import { GoalsPage } from '@/pages/goals-page'
 import { SessionsPage } from '@/pages/sessions-page'
+import { CategoriesPage } from '@/pages/categories-page'
 import { ROUTES } from '@/shared/config'
 import { AppLayout } from '@/shared/ui/app-layout'
 
@@ -53,6 +54,13 @@ const goalsRoute = createRoute({
   component: GoalsPage,
 })
 
+// Add categoriesRoute
+const categoriesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: ROUTES.categories,
+  component: CategoriesPage,
+})
+
 
 const routeTree = rootRoute.addChildren([
   dashboardRoute,
@@ -60,6 +68,7 @@ const routeTree = rootRoute.addChildren([
   booksRoute,
   sessionsRoute,
   goalsRoute,
+  categoriesRoute, // Add categoriesRoute to routeTree
 ])
 
 export const router = createRouter({

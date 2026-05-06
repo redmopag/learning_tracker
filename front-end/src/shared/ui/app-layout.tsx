@@ -50,6 +50,13 @@ export function AppLayout() {
           >
             Цели
           </Link>
+          <Link
+            activeProps={{ className: 'nav-link active' }}
+            className="nav-link"
+            to={ROUTES.categories}
+          >
+            Категории
+          </Link>
         </nav>
       </aside>
 

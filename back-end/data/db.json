@@ -6,21 +6,18 @@
       "description": "Мощные алгоритмы для мощных парней",
       "url": "https://www.youtube.com/",
       "categoryId": null,
-      "status": "planned",
+      "status": "completed",
       "totalSteps": 10,
-      "currentStep": 2
+      "currentStep": 10
     }
   ],
   "books": [],
-  "categories": [],
-  "goals": [],
-  "learningSessions": [
+  "categories": [
     {
-      "id": "session-1778009944270-3bl6o0",
-      "date": "2026-05-05T19:39:04.268Z",
-      "duration": 30,
-      "relatedItemId": "course-1778009914800-4zuzs4",
-      "type": "course"
+      "id": "category-1778043367243-e9i9nt",
+      "name": "Алгоритмы"
     }
-  ]
+  ],
+  "goals": [],
+  "learningSessions": []
 }
