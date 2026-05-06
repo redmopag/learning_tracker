@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createCourse, Course } from '@/entities/course'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import styles from './create-course-form.module.css'
 
 export function CreateCourseForm() {
   const dispatch = useAppDispatch()
@@ -35,38 +36,38 @@ export function CreateCourseForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="panel stack">
+    <form onSubmit={handleSubmit} className={`${styles.panel} ${styles.stack}`}>
       <h3>Добавить новый курс</h3>
-      <label className="field">
+      <label className={styles.field}>
         <span>Название</span>
         <input
-          className="input"
+          className={styles.input}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Описание</span>
         <textarea
-          className="textarea"
+          className={styles.textarea}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>URL</span>
         <input
-          className="input"
+          className={styles.input}
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Всего шагов</span>
         <input
-          className="input"
+          className={styles.input}
           type="number"
           value={totalSteps}
           onChange={(e) => setTotalSteps(Number(e.target.value))}
@@ -74,10 +75,10 @@ export function CreateCourseForm() {
           min="1"
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Категория</span>
         <select
-          className="input"
+          className={styles.input}
           value={categoryId ?? ''}
           onChange={(e) => setCategoryId(e.target.value || null)}
         >
@@ -87,7 +88,7 @@ export function CreateCourseForm() {
           ))}
         </select>
       </label>
-      <button type="submit" className="button button-accent">Добавить курс</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Добавить курс</button>
     </form>
   )
 }

@@ -1,11 +1,12 @@
 import { DashboardMetrics } from "@/widgets/dashboard-metrics";
+import styles from './dashboard-page.module.css';
 
 export function DashboardPage() {
   return (
-    <div className="page-shell stack">
-      <section className="hero compact-hero">
+    <div className={`${styles.pageShell} ${styles.stack}`}>
+      <section className={`${styles.hero} ${styles.compactHero}`}>
         <h1>Дашборд</h1>
-        <p className="hero-copy">
+        <p className={styles.heroCopy}>
           Обзор вашего прогресса в обучении.
         </p>
       </section>

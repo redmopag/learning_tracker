@@ -1,6 +1,7 @@
 import { Book, deleteBook, updateBook } from '@/entities/book'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { useState } from 'react'
+import styles from './book-list.module.css'
 
 interface BookListProps {
   books: Book[]
@@ -16,19 +17,19 @@ export function BookList({ books }: BookListProps) {
   }
 
   return (
-    <div className="stack">
+    <div className={styles.stack}>
       {books.map(book => {
         const progress = Math.round((book.currentStep / book.totalSteps) * 100)
         return (
-          <div key={book.id} className="panel stack">
-            <div className="section-heading">
+          <div key={book.id} className={`${styles.panel} ${styles.stack}`}>
+            <div className={styles.sectionHeading}>
               <h3>{book.title}</h3>
-              <span className="badge">{book.status}</span>
+              <span className={styles.badge}>{book.status}</span>
             </div>
 
             {editingBookId === book.id ? (
               <select
-                className="input"
+                className={styles.input}
                 value={book.categoryId ?? ''}
                 onChange={(e) => {
                   dispatch(updateBook({ id: book.id, categoryId: e.target.value || null }))
@@ -41,12 +42,12 @@ export function BookList({ books }: BookListProps) {
                 ))}
               </select>
             ) : (
-              <p className="muted" onClick={() => setEditingBookId(book.id)}>
+              <p className={styles.muted} onClick={() => setEditingBookId(book.id)}>
                 {book.author} | {getCategoryName(book.categoryId)} ✎
               </p>
             )}
 
-            {book.url && <a href={book.url} target="_blank" rel="noopener noreferrer" className="link-button">Перейти к книге</a>}
+            {book.url && <a href={book.url} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>Перейти к книге</a>}
             
             <div>
               <span>Прогресс: {progress}%</span>
@@ -60,21 +61,21 @@ export function BookList({ books }: BookListProps) {
               <span>{book.currentStep} / {book.totalSteps} глав</span>
             </div>
 
-            <div className="card-actions">
+            <div className={styles.cardActions}>
               <button 
-                className="button button-accent"
+                className={`${styles.button} ${styles.buttonAccent}`}
                 onClick={() => dispatch(updateBook({ id: book.id, status: 'in_progress' }))}
               >
                 Начать читать
               </button>
               <button 
-                className="button button-accent"
+                className={`${styles.button} ${styles.buttonAccent}`}
                 onClick={() => dispatch(updateBook({ id: book.id, status: 'completed', currentStep: book.totalSteps }))}
               >
                 Прочитано
               </button>
               <button 
-                className="button-ghost"
+                className={styles.buttonGhost}
                 onClick={() => dispatch(deleteBook(book.id))}
               >
                 Удалить

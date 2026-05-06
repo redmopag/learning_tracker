@@ -1,14 +1,14 @@
 {
   "courses": [
     {
-      "id": "course-1778009914800-4zuzs4",
+      "id": "course-1778045743444-zduuxz",
       "title": "Алгоритмы",
-      "description": "Мощные алгоритмы для мощных парней",
+      "description": "Модный алгоримты",
       "url": "https://www.youtube.com/",
       "categoryId": "category-1778043367243-e9i9nt",
-      "status": "completed",
+      "status": "planned",
       "totalSteps": 10,
-      "currentStep": 10
+      "currentStep": 1
     }
   ],
   "books": [
@@ -18,12 +18,20 @@
       "author": "Лучший повар на свете",
       "url": "",
       "categoryId": "category-1778043367243-e9i9nt",
-      "status": "planned",
+      "status": "completed",
       "totalSteps": 10,
-      "currentStep": 0
+      "currentStep": 10
     }
   ],
   "categories": [
+    {
+      "id": "category-1778045805228-54lzba",
+      "name": "Кулинария"
+    },
+    {
+      "id": "category-1778045799278-1mw573",
+      "name": "Программирование"
+    },
     {
       "id": "category-1778043367243-e9i9nt",
       "name": "Алгоритмы"
@@ -38,5 +46,13 @@
       "relatedItems": []
     }
   ],
-  "learningSessions": []
+  "learningSessions": [
+    {
+      "id": "session-1778045770256-hx76qj",
+      "date": "2026-05-06T05:36:10.252Z",
+      "duration": 30,
+      "relatedItemId": "book-1778044199541-meltby",
+      "type": "book"
+    }
+  ]
 }

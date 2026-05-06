@@ -1,27 +1,28 @@
 import { useAppSelector } from '@/shared/lib/hooks'
 import { CreateGoalForm } from '@/features/create-goal'
 import { GoalList } from '@/widgets/goal-list'
+import styles from './goals-page.module.css'
 
 export function GoalsPage() {
   const goals = useAppSelector(state => state.goals.items)
   const status = useAppSelector(state => state.goals.status)
 
   return (
-    <div className="page-shell stack">
-      <section className="hero compact-hero">
+    <div className={`${styles.pageShell} ${styles.stack}`}>
+      <section className={`${styles.hero} ${styles.compactHero}`}>
         <h1>Цели</h1>
-        <p className="hero-copy">
+        <p className={styles.heroCopy}>
           Ставьте и отслеживайте свои цели в обучении.
         </p>
       </section>
 
       <CreateGoalForm />
       
-      {status === 'loading' && <div className="panel">Загрузка...</div>}
+      {status === 'loading' && <div className={styles.panel}>Загрузка...</div>}
       
       {status === 'success' && <GoalList goals={goals} />}
 
-      {status === 'error' && <div className="panel">Ошибка загрузки целей.</div>}
+      {status === 'error' && <div className={styles.panel}>Ошибка загрузки целей.</div>}
     </div>
   )
 }

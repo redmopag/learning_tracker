@@ -1,0 +1,36 @@
+.panel {
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  backdrop-filter: blur(14px);
+  box-shadow: var(--shadow);
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.collectionGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 18px;
+}
+
+.heroCopy {
+  color: var(--muted);
+  max-width: 760px;
+  font-size: 1.08rem;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.panel h2,
+.panel h3,
+.panel h4 {
+  margin: 0;
+}

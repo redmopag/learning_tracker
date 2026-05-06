@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createLearningSession, LearningSession } from '@/entities/learning-session'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import styles from './log-session-form.module.css'
 
 export function LogSessionForm() {
   const dispatch = useAppDispatch()
@@ -30,12 +31,12 @@ export function LogSessionForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="panel stack">
+    <form onSubmit={handleSubmit} className={`${styles.panel} ${styles.stack}`}>
       <h3>Записать сессию обучения</h3>
-      <label className="field">
+      <label className={styles.field}>
         <span>Продолжительность (в минутах)</span>
         <input
-          className="input"
+          className={styles.input}
           type="number"
           value={duration}
           onChange={(e) => setDuration(Number(e.target.value))}
@@ -43,10 +44,10 @@ export function LogSessionForm() {
           min="1"
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Курс или книга</span>
         <select
-          className="input"
+          className={styles.input}
           value={relatedItemId}
           onChange={(e) => setRelatedItemId(e.target.value)}
           required
@@ -64,7 +65,7 @@ export function LogSessionForm() {
           </optgroup>
         </select>
       </label>
-      <button type="submit" className="button button-accent">Записать</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Записать</button>
     </form>
   )
 }

@@ -1,58 +1,59 @@
 import { Link, Outlet } from '@tanstack/react-router'
 import { APP_NAME, ROUTES } from '@/shared/config'
+import styles from './app-layout.module.css'
 
 export function AppLayout() {
   return (
-    <div className="app-shell">
-      <aside className="sidebar">
+    <div className={styles.appShell}>
+      <aside className={styles.sidebar}>
         <div>
-          <p className="eyebrow">
+          <p className={styles.eyebrow}>
             Keep learning
           </p>
-          <span className="brand">
+          <span className={styles.brand}>
             {APP_NAME}
           </span>
         </div>
-        <nav className="nav">
+        <nav className={styles.nav}>
           <Link
             activeOptions={{ exact: true }}
-            activeProps={{ className: 'nav-link active' }}
-            className="nav-link"
+            activeProps={{ className: styles.active }}
+            className={styles.navLink}
             to={ROUTES.dashboard}
           >
             Дашборд
           </Link>
           <Link
-            activeProps={{ className: 'nav-link active' }}
-            className="nav-link"
+            activeProps={{ className: styles.active }}
+            className={styles.navLink}
             to={ROUTES.courses}
           >
             Курсы
           </Link>
           <Link
-            activeProps={{ className: 'nav-link active' }}
-            className="nav-link"
+            activeProps={{ className: styles.active }}
+            className={styles.navLink}
             to={ROUTES.books}
           >
             Книги
           </Link>
           <Link
-            activeProps={{ className: 'nav-link active' }}
-            className="nav-link"
+            activeProps={{ className: styles.active }}
+            className={styles.navLink}
             to={ROUTES.sessions}
           >
             Сессии
           </Link>
           <Link
-            activeProps={{ className: 'nav-link active' }}
-            className="nav-link"
+            activeProps={{ className: styles.active }}
+            className={styles.navLink}
             to={ROUTES.goals}
           >
             Цели
           </Link>
           <Link
-            activeProps={{ className: 'nav-link active' }}
-            className="nav-link"
+            activeProps={{ className: styles.active }}
+            className={styles.navLink}
             to={ROUTES.categories}
           >
             Категории
@@ -60,7 +61,7 @@ export function AppLayout() {
         </nav>
       </aside>
 
-      <main className="content">
+      <main className={styles.content}>
         <Outlet />
       </main>
     </div>

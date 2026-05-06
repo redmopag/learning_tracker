@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createBook, Book } from '@/entities/book'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
+import styles from './create-book-form.module.css'
 
 export function CreateBookForm() {
   const dispatch = useAppDispatch()
@@ -35,38 +36,38 @@ export function CreateBookForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="panel stack">
+    <form onSubmit={handleSubmit} className={`${styles.panel} ${styles.stack}`}>
       <h3>Добавить новую книгу</h3>
-      <label className="field">
+      <label className={styles.field}>
         <span>Название</span>
         <input
-          className="input"
+          className={styles.input}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Автор</span>
         <input
-          className="input"
+          className={styles.input}
           value={author}
           onChange={(e) => setAuthor(e.target.value)}
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>URL</span>
         <input
-          className="input"
+          className={styles.input}
           type="url"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Всего глав/разделов</span>
         <input
-          className="input"
+          className={styles.input}
           type="number"
           value={totalSteps}
           onChange={(e) => setTotalSteps(Number(e.target.value))}
@@ -74,10 +75,10 @@ export function CreateBookForm() {
           min="1"
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Категория</span>
         <select
-          className="input"
+          className={styles.input}
           value={categoryId ?? ''}
           onChange={(e) => setCategoryId(e.target.value || null)}
         >
@@ -87,7 +88,7 @@ export function CreateBookForm() {
           ))}
         </select>
       </label>
-      <button type="submit" className="button button-accent">Добавить книгу</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Добавить книгу</button>
     </form>
   )
 }

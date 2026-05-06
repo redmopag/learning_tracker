@@ -1,5 +1,6 @@
 import { useAppSelector } from '@/shared/lib/hooks'
 import { useMemo } from 'react'
+import styles from './dashboard-metrics.module.css'
 
 export function DashboardMetrics() {
   const courses = useAppSelector(state => state.courses.items)
@@ -33,35 +34,35 @@ export function DashboardMetrics() {
   }, [courses, books, learningSessions, categories])
 
   return (
-    <div className="panel stack">
+    <div className={`${styles.panel} ${styles.stack}`}>
       <h2>Статистика</h2>
-      <div className="collection-grid">
-          <div className="panel">
+      <div className={styles.collectionGrid}>
+          <div className={styles.panel}>
             <h3>Общее время</h3>
-            <p className="hero-copy">{stats.totalHours} ч.</p>
+            <p className={styles.heroCopy}>{stats.totalHours} ч.</p>
           </div>
-          <div className="panel">
+          <div className={styles.panel}>
             <h3>Курсы завершены</h3>
-            <p className="hero-copy">{stats.completedCourses}</p>
+            <p className={styles.heroCopy}>{stats.completedCourses}</p>
           </div>
-          <div className="panel">
+          <div className={styles.panel}>
             <h3>Книги прочитаны</h3>
-            <p className="hero-copy">{stats.completedBooks}</p>
+            <p className={styles.heroCopy}>{stats.completedBooks}</p>
           </div>
       </div>
 
       <h3>Время по категориям</h3>
       {stats.timeByCategory.length > 0 ? (
-        <div className="collection-grid">
+        <div className={styles.collectionGrid}>
           {stats.timeByCategory.map(cat => (
-            <div className="panel" key={cat.name}>
+            <div className={styles.panel} key={cat.name}>
               <h4>{cat.name}</h4>
-              <p className="hero-copy">{cat.hours} ч.</p>
+              <p className={styles.heroCopy}>{cat.hours} ч.</p>
             </div>
           ))}
         </div>
       ) : (
-        <p className="muted">Нет данных по категориям.</p>
+        <p className={styles.muted}>Нет данных по категориям.</p>
       )}
     </div>
   )

@@ -1,6 +1,7 @@
 import { LearningSession, deleteLearningSession } from '@/entities/learning-session'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 import { useMemo } from 'react'
+import styles from './session-list.module.css'
 
 interface SessionListProps {
   sessions: LearningSession[]
@@ -25,17 +26,17 @@ export function SessionList({ sessions }: SessionListProps) {
   }, [sessions, courses, books])
 
   return (
-    <div className="stack">
+    <div className={styles.stack}>
       {items.map(session => (
-        <div key={session.id} className="panel section-heading">
+        <div key={session.id} className={`${styles.panel} ${styles.sectionHeading}`}>
           <div>
-            <p className="muted">{new Date(session.date).toLocaleDateString('ru-RU')}</p>
+            <p className={styles.muted}>{new Date(session.date).toLocaleDateString('ru-RU')}</p>
             <h4>{session.relatedItemName}</h4>
           </div>
-          <div className='card-actions'>
-            <span className="badge">{session.duration} мин.</span>
+          <div className={styles.cardActions}>
+            <span className={styles.badge}>{session.duration} мин.</span>
             <button 
-              className="button-ghost"
+              className={styles.buttonGhost}
               onClick={() => dispatch(deleteLearningSession(session.id))}
             >
               Удалить

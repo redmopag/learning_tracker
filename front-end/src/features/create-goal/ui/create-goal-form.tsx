@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { createGoal, Goal } from '@/entities/goal'
 import { useAppDispatch } from '@/shared/lib/hooks'
+import styles from './create-goal-form.module.css'
 
 export function CreateGoalForm() {
   const dispatch = useAppDispatch()
@@ -28,35 +29,35 @@ export function CreateGoalForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="panel stack">
+    <form onSubmit={handleSubmit} className={`${styles.panel} ${styles.stack}`}>
       <h3>Поставить новую цель</h3>
-      <label className="field">
+      <label className={styles.field}>
         <span>Название цели</span>
         <input
-          className="input"
+          className={styles.input}
           value={title}
           onChange={(e) => setTitle(e.target.value)}
           required
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Описание</span>
         <textarea
-          className="textarea"
+          className={styles.textarea}
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
       </label>
-      <label className="field">
+      <label className={styles.field}>
         <span>Дедлайн</span>
         <input
-          className="input"
+          className={styles.input}
           type="date"
           value={deadline}
           onChange={(e) => setDeadline(e.target.value)}
         />
       </label>
-      <button type="submit" className="button button-accent">Поставить цель</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Поставить цель</button>
     </form>
   )
 }

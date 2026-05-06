@@ -2,6 +2,7 @@ import type { Category } from '@/entities/category'
 import { deleteCategory, updateCategory } from '@/entities/category'
 import { useAppDispatch } from '@/shared/lib/hooks'
 import { useState } from 'react'
+import styles from './category-list.module.css'
 
 interface CategoryListProps {
   categories: Category[]
@@ -28,33 +29,33 @@ export function CategoryList({ categories }: CategoryListProps) {
   }
 
   return (
-    <div className="stack">
+    <div className={styles.stack}>
       {categories.map(category => (
-        <div key={category.id} className="panel section-heading">
+        <div key={category.id} className={`${styles.panel} ${styles.sectionHeading}`}>
           {editingCategoryId === category.id ? (
-            <div className="stack-row" style={{ width: '100%', justifyContent: 'space-between' }}>
+            <div className={styles.stackRow}>
               <input
                 type="text"
                 value={editedName}
                 onChange={(e) => setEditedName(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSave(category.id)}
                 autoFocus
-                className="input"
+                className={styles.input}
               />
-              <div className="card-actions">
-                <button className="button button-accent" onClick={() => handleSave(category.id)}>Сохранить</button>
-                <button className="button-ghost" onClick={handleCancel}>Отмена</button>
+              <div className={styles.cardActions}>
+                <button className={`${styles.button} ${styles.buttonAccent}`} onClick={() => handleSave(category.id)}>Сохранить</button>
+                <button className={styles.buttonGhost} onClick={handleCancel}>Отмена</button>
               </div>
             </div>
           ) : (
             <>
               <h4>{category.name}</h4>
-              <div className="card-actions">
-                <button className="button button-accent" onClick={() => handleEdit(category)}>
+              <div className={styles.cardActions}>
+                <button className={`${styles.button} ${styles.buttonAccent}`} onClick={() => handleEdit(category)}>
                   Редактировать
                 </button>
                 <button
-                  className="button-ghost"
+                  className={styles.buttonGhost}
                   onClick={() => dispatch(deleteCategory(category.id))}
                 >
                   Удалить

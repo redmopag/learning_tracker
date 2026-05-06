@@ -1,6 +1,7 @@
 import { createCategory } from '@/entities/category'
 import { useAppDispatch } from '@/shared/lib/hooks'
 import { useState } from 'react'
+import styles from './create-category-form.module.css'
 
 export function CreateCategoryForm() {
   const dispatch = useAppDispatch()
@@ -14,19 +15,19 @@ export function CreateCategoryForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="panel stack">
+    <form onSubmit={handleSubmit} className={`${styles.panel} ${styles.stack}`}>
       <h3>Добавить новую категорию</h3>
-      <label className="field">
+      <label className={styles.field}>
         <span>Название</span>
         <input
-          className="input"
+          className={styles.input}
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
           required
         />
       </label>
-      <button type="submit" className="button button-accent">Добавить категорию</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Добавить категорию</button>
     </form>
   )
 }
