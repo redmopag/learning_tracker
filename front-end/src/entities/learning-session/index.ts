@@ -1,6 +1,5 @@
 export {
   learningSessionsReducer,
-  fetchLearningSessions,
 } from './model/learning-session-slice'
 
 export { useLearningSessions } from './lib/use-learning-sessions'

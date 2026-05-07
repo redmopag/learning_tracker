@@ -1,6 +1,16 @@
 {
   "courses": [
     {
+      "id": "course-1778131834924-wbzdv5",
+      "title": "Тестовый курс",
+      "description": "Станешь мощным QA",
+      "url": "",
+      "categoryId": "category-1778045805228-54lzba",
+      "status": "planned",
+      "totalSteps": 1000,
+      "currentStep": 0
+    },
+    {
       "id": "course-1778106968598-15ftek",
       "title": "dfdf",
       "description": "dfdf",

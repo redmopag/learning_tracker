@@ -1,6 +1,5 @@
 export {
   booksReducer,
-  fetchBooks,
 } from './model/book-slice'
 
 export { useBooks } from './lib/use-books'

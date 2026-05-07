@@ -1,6 +1,5 @@
 export {
   categoriesReducer,
-  fetchCategories,
 } from './model/category-slice'
 
 export { useCategories } from './lib/use-categories'

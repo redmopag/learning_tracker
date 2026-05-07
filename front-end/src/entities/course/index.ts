@@ -1,6 +1,5 @@
 export {
   coursesReducer,
-  fetchCourses,
 } from './model/course-slice'
 
 export { useCourses } from './lib/use-courses'
