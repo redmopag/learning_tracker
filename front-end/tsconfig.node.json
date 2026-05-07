@@ -10,7 +10,7 @@
     "moduleResolution": "bundler",
     "types": ["node"],
     "allowImportingTsExtensions": true,
-    
+
     "noFallthroughCasesInSwitch": true,
     /* Linting */
     "noUnusedLocals": true,

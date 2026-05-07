@@ -26,7 +26,9 @@ export function CreateCategoryForm() {
           required
         />
       </label>
-      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Добавить категорию</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>
+        Добавить категорию
+      </button>
     </form>
   )
 }

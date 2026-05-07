@@ -42,13 +42,13 @@ const booksSlice = createSlice({
         state.items.unshift(action.payload)
       })
       .addCase(updateBook.fulfilled, (state, action) => {
-        const index = state.items.findIndex(item => item.id === action.payload.id)
+        const index = state.items.findIndex((item) => item.id === action.payload.id)
         if (index !== -1) {
           state.items[index] = action.payload
         }
       })
       .addCase(deleteBook.fulfilled, (state, action) => {
-        state.items = state.items.filter(item => item.id !== action.payload)
+        state.items = state.items.filter((item) => item.id !== action.payload)
       })
   },
 })

@@ -1,6 +1,4 @@
-export {
-  goalsReducer,
-} from './model/goal-slice'
+export { goalsReducer } from './model/goal-slice'
 
 export { useGoals } from './lib/use-goals'
 

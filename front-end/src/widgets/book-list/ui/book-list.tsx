@@ -13,12 +13,12 @@ export function BookList({ books }: BookListProps) {
   const [editingBookId, setEditingBookId] = useState<string | null>(null)
 
   const getCategoryName = (categoryId: string | null) => {
-    return categories.find(cat => cat.id === categoryId)?.name || 'Без категории'
+    return categories.find((cat) => cat.id === categoryId)?.name || 'Без категории'
   }
 
   return (
     <div className={styles.stack}>
-      {books.map(book => {
+      {books.map((book) => {
         const progress = Math.round((book.currentStep / book.totalSteps) * 100)
         return (
           <div key={book.id} className={`${styles.panel} ${styles.stack}`}>
@@ -37,8 +37,10 @@ export function BookList({ books }: BookListProps) {
                 }}
               >
                 <option value="">Без категории</option>
-                {categories.map(cat => (
-                  <option key={cat.id} value={cat.id}>{cat.name}</option>
+                {categories.map((cat) => (
+                  <option key={cat.id} value={cat.id}>
+                    {cat.name}
+                  </option>
                 ))}
               </select>
             ) : (
@@ -47,37 +49,47 @@ export function BookList({ books }: BookListProps) {
               </p>
             )}
 
-            {book.url && <a href={book.url} target="_blank" rel="noopener noreferrer" className={styles.linkButton}>Перейти к книге</a>}
-            
+            {book.url && (
+              <a
+                href={book.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.linkButton}
+              >
+                Перейти к книге
+              </a>
+            )}
+
             <div>
               <span>Прогресс: {progress}%</span>
-              <input 
-                type="range" 
-                min="0" 
-                max={book.totalSteps} 
+              <input
+                type="range"
+                min="0"
+                max={book.totalSteps}
                 value={book.currentStep}
                 onChange={(e) => updateBook({ id: book.id, currentStep: Number(e.target.value) })}
               />
-              <span>{book.currentStep} / {book.totalSteps} глав</span>
+              <span>
+                {book.currentStep} / {book.totalSteps} глав
+              </span>
             </div>
 
             <div className={styles.cardActions}>
-              <button 
+              <button
                 className={`${styles.button} ${styles.buttonAccent}`}
                 onClick={() => updateBook({ id: book.id, status: 'in_progress' })}
               >
                 Начать читать
               </button>
-              <button 
+              <button
                 className={`${styles.button} ${styles.buttonAccent}`}
-                onClick={() => updateBook({ id: book.id, status: 'completed', currentStep: book.totalSteps })}
+                onClick={() =>
+                  updateBook({ id: book.id, status: 'completed', currentStep: book.totalSteps })
+                }
               >
                 Прочитано
               </button>
-              <button 
-                className={styles.buttonGhost}
-                onClick={() => deleteBook(book.id)}
-              >
+              <button className={styles.buttonGhost} onClick={() => deleteBook(book.id)}>
                 Удалить
               </button>
             </div>

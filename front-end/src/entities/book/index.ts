@@ -1,6 +1,4 @@
-export {
-  booksReducer,
-} from './model/book-slice'
+export { booksReducer } from './model/book-slice'
 
 export { useBooks } from './lib/use-books'
 

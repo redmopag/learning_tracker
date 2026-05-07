@@ -20,7 +20,9 @@ export const learningSessionApiService = {
     })
   },
 
-  updateLearningSession(payload: Partial<LearningSessionDto> & { id: string }): Promise<LearningSession> {
+  updateLearningSession(
+    payload: Partial<LearningSessionDto> & { id: string },
+  ): Promise<LearningSession> {
     return makeRequest<LearningSession>({
       url: `${endpoint}/${payload.id}`,
       method: 'PATCH',

@@ -1,18 +1,13 @@
 import { useCallback, useEffect } from 'react'
-import {
-  createGoal,
-  deleteGoal,
-  fetchGoals,
-  updateGoal,
-} from '@/entities/goal/model/goal-slice'
+import { createGoal, deleteGoal, fetchGoals, updateGoal } from '@/entities/goal/model/goal-slice'
 import type { Goal } from '@/entities/goal/model/types'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 
 export function useGoals() {
   const dispatch = useAppDispatch()
 
-  const goals = useAppSelector(state => state.goals.items)
-  const status = useAppSelector(state => state.goals.status)
+  const goals = useAppSelector((state) => state.goals.items)
+  const status = useAppSelector((state) => state.goals.status)
 
   useEffect(() => {
     if (status === 'idle') {

@@ -1,18 +1,13 @@
 import { useCallback, useEffect } from 'react'
-import {
-  createBook,
-  deleteBook,
-  fetchBooks,
-  updateBook,
-} from '@/entities/book/model/book-slice'
+import { createBook, deleteBook, fetchBooks, updateBook } from '@/entities/book/model/book-slice'
 import type { Book } from '@/entities/book/model/types'
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 
 export function useBooks() {
   const dispatch = useAppDispatch()
 
-  const books = useAppSelector(state => state.books.items)
-  const status = useAppSelector(state => state.books.status)
+  const books = useAppSelector((state) => state.books.items)
+  const status = useAppSelector((state) => state.books.status)
 
   useEffect(() => {
     if (status === 'idle') {

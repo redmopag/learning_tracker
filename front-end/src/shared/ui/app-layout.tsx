@@ -7,12 +7,8 @@ export function AppLayout() {
     <div className={styles.appShell}>
       <aside className={styles.sidebar}>
         <div>
-          <p className={styles.eyebrow}>
-            Keep learning
-          </p>
-          <span className={styles.brand}>
-            {APP_NAME}
-          </span>
+          <p className={styles.eyebrow}>Keep learning</p>
+          <span className={styles.brand}>{APP_NAME}</span>
         </div>
         <nav className={styles.nav}>
           <Link

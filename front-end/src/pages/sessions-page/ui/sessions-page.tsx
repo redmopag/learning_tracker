@@ -16,9 +16,9 @@ export function SessionsPage() {
       </section>
 
       <LogSessionForm />
-      
+
       {status === 'loading' && <div className={styles.panel}>Загрузка...</div>}
-      
+
       {status === 'success' && <SessionList sessions={sessions} />}
 
       {status === 'error' && <div className={styles.panel}>Ошибка загрузки сессий.</div>}

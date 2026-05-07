@@ -8,7 +8,7 @@ export function LogSessionForm() {
   const { createLearningSession } = useLearningSessions()
   const { courses } = useCourses()
   const { books } = useBooks()
-  
+
   const [duration, setDuration] = useState(30)
   const [relatedItemId, setRelatedItemId] = useState('')
 
@@ -17,7 +17,7 @@ export function LogSessionForm() {
     if (!duration || !relatedItemId) return
 
     const [type, id] = relatedItemId.split(':')
-    
+
     const newSession: Omit<LearningSession, 'id'> = {
       date: new Date().toISOString(),
       duration,
@@ -53,20 +53,28 @@ export function LogSessionForm() {
           onChange={(e) => setRelatedItemId(e.target.value)}
           required
         >
-          <option value="" disabled>Выберите...</option>
+          <option value="" disabled>
+            Выберите...
+          </option>
           <optgroup label="Курсы">
-            {courses.map(course => (
-              <option key={`course:${course.id}`} value={`course:${course.id}`}>{course.title}</option>
+            {courses.map((course) => (
+              <option key={`course:${course.id}`} value={`course:${course.id}`}>
+                {course.title}
+              </option>
             ))}
           </optgroup>
           <optgroup label="Книги">
-            {books.map(book => (
-              <option key={`book:${book.id}`} value={`book:${book.id}`}>{book.title}</option>
+            {books.map((book) => (
+              <option key={`book:${book.id}`} value={`book:${book.id}`}>
+                {book.title}
+              </option>
             ))}
           </optgroup>
         </select>
       </label>
-      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Записать</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>
+        Записать
+      </button>
     </form>
   )
 }

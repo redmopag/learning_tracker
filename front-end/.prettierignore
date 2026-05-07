@@ -1,0 +1,19 @@
+# Ignore artifacts:
+build
+dist
+.turbo
+node_modules
+
+# Ignore all HTML files:
+*.html
+
+# Ignore all CSS files except those in "src" subdirectory
+!src/**/*.css
+
+# Ignore specific files:
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Ignore all files in the docs directory
+docs

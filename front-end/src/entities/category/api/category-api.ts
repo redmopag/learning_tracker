@@ -18,7 +18,7 @@ export const categoryApiService = {
     })
   },
 
-  updateCategory(payload: { id: string, name: string }): Promise<Category> {
+  updateCategory(payload: { id: string; name: string }): Promise<Category> {
     return makeRequest<Category>({
       url: `${endpoint}/${payload.id}`,
       method: 'PATCH',

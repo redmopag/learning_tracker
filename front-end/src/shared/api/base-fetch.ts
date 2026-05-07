@@ -5,14 +5,7 @@ interface BaseFetchOptions extends RequestInit {
 }
 
 export async function baseFetch<T>(input: string, options: BaseFetchOptions = {}): Promise<T> {
-  const {
-    timeout = 8000,
-    params,
-    token,
-    headers,
-    body,
-    ...requestInit
-  } = options
+  const { timeout = 8000, params, token, headers, body, ...requestInit } = options
 
   const controller = new AbortController()
   const timeoutId = window.setTimeout(() => controller.abort(), timeout)
@@ -49,16 +42,14 @@ export async function baseFetch<T>(input: string, options: BaseFetchOptions = {}
       return undefined as T
     }
 
-    return await response.json() as T
-  }
-  catch (error) {
+    return (await response.json()) as T
+  } catch (error) {
     if (error instanceof Error && error.name === 'AbortError') {
       throw new Error('Request timeout exceeded')
     }
 
     throw error
-  }
-  finally {
+  } finally {
     window.clearTimeout(timeoutId)
   }
 }

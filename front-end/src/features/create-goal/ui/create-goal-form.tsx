@@ -4,7 +4,7 @@ import styles from './create-goal-form.module.css'
 
 export function CreateGoalForm() {
   const { createGoal } = useGoals()
-  
+
   const [title, setTitle] = useState('')
   const [description, setDescription] = useState('')
   const [deadline, setDeadline] = useState('')
@@ -56,7 +56,9 @@ export function CreateGoalForm() {
           onChange={(e) => setDeadline(e.target.value)}
         />
       </label>
-      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Поставить цель</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>
+        Поставить цель
+      </button>
     </form>
   )
 }

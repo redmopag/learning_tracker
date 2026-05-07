@@ -14,12 +14,9 @@
   padding: 36px;
   border-radius: calc(var(--radius-lg) + 8px);
 
-  background: linear-gradient(
-    135deg,
-    rgba(232, 245, 233, 0.9),
-    rgba(200, 230, 201, 0.7)
-  ),
-  var(--surface-strong);
+  background:
+    linear-gradient(135deg, rgba(232, 245, 233, 0.9), rgba(200, 230, 201, 0.7)),
+    var(--surface-strong);
 
   border: 1px solid rgba(46, 125, 50, 0.12);
   box-shadow: var(--shadow);

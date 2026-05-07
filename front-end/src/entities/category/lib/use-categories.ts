@@ -11,8 +11,8 @@ import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 export function useCategories() {
   const dispatch = useAppDispatch()
 
-  const categories = useAppSelector(state => state.categories.items)
-  const status = useAppSelector(state => state.categories.status)
+  const categories = useAppSelector((state) => state.categories.items)
+  const status = useAppSelector((state) => state.categories.status)
 
   useEffect(() => {
     if (status === 'idle') {

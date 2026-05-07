@@ -1,6 +1,4 @@
-export {
-  coursesReducer,
-} from './model/course-slice'
+export { coursesReducer } from './model/course-slice'
 
 export { useCourses } from './lib/use-courses'
 

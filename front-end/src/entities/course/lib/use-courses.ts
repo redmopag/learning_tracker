@@ -11,8 +11,8 @@ import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks'
 export function useCourses() {
   const dispatch = useAppDispatch()
 
-  const courses = useAppSelector(state => state.courses.items)
-  const status = useAppSelector(state => state.courses.status)
+  const courses = useAppSelector((state) => state.courses.items)
+  const status = useAppSelector((state) => state.courses.status)
 
   useEffect(() => {
     if (status === 'idle') {

@@ -10,15 +10,13 @@ export function BooksPage() {
     <div className={`${styles.pageShell} ${styles.stack}`}>
       <section className={`${styles.hero} ${styles.compactHero}`}>
         <h1>Книги</h1>
-        <p className={styles.heroCopy}>
-          Здесь вы можете управлять своими книгами для чтения.
-        </p>
+        <p className={styles.heroCopy}>Здесь вы можете управлять своими книгами для чтения.</p>
       </section>
 
       <CreateBookForm />
-      
+
       {status === 'loading' && <div className={styles.panel}>Загрузка...</div>}
-      
+
       {status === 'success' && <BookList books={books} />}
 
       {status === 'error' && <div className={styles.panel}>Ошибка загрузки книг.</div>}

@@ -8,6 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -24,6 +25,7 @@
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.2.1",
     "eslint": "^9.3.0",
+    "prettier": "^3.8.3",
     "typescript": "^5.4.5",
     "unplugin-auto-import": "^0.17.6",
     "vite": "^5.2.12"

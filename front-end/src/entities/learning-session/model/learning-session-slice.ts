@@ -15,10 +15,22 @@ const initialState: LearningSessionsState = {
   error: null,
 }
 
-export const fetchLearningSessions = createAsyncThunk('learning-sessions/fetch', learningSessionApiService.fetchLearningSessions)
-export const createLearningSession = createAsyncThunk('learning-sessions/create', learningSessionApiService.createLearningSession)
-export const updateLearningSession = createAsyncThunk('learning-sessions/update', learningSessionApiService.updateLearningSession)
-export const deleteLearningSession = createAsyncThunk('learning-sessions/delete', learningSessionApiService.deleteLearningSession)
+export const fetchLearningSessions = createAsyncThunk(
+  'learning-sessions/fetch',
+  learningSessionApiService.fetchLearningSessions,
+)
+export const createLearningSession = createAsyncThunk(
+  'learning-sessions/create',
+  learningSessionApiService.createLearningSession,
+)
+export const updateLearningSession = createAsyncThunk(
+  'learning-sessions/update',
+  learningSessionApiService.updateLearningSession,
+)
+export const deleteLearningSession = createAsyncThunk(
+  'learning-sessions/delete',
+  learningSessionApiService.deleteLearningSession,
+)
 
 const learningSessionsSlice = createSlice({
   name: 'learningSessions',
@@ -42,13 +54,13 @@ const learningSessionsSlice = createSlice({
         state.items.unshift(action.payload)
       })
       .addCase(updateLearningSession.fulfilled, (state, action) => {
-        const index = state.items.findIndex(item => item.id === action.payload.id)
+        const index = state.items.findIndex((item) => item.id === action.payload.id)
         if (index !== -1) {
           state.items[index] = action.payload
         }
       })
       .addCase(deleteLearningSession.fulfilled, (state, action) => {
-        state.items = state.items.filter(item => item.id !== action.payload)
+        state.items = state.items.filter((item) => item.id !== action.payload)
       })
   },
 })

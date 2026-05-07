@@ -16,12 +16,7 @@ import { AppLayout } from '@/shared/ui/app-layout'
 
 const rootRoute = createRootRoute({
   component: AppLayout,
-  notFoundComponent: () => (
-    <Navigate
-      replace
-      to={ROUTES.dashboard}
-    />
-  ),
+  notFoundComponent: () => <Navigate replace to={ROUTES.dashboard} />,
 })
 
 const dashboardRoute = createRoute({
@@ -60,7 +55,6 @@ const categoriesRoute = createRoute({
   path: ROUTES.categories,
   component: CategoriesPage,
 })
-
 
 const routeTree = rootRoute.addChildren([
   dashboardRoute,

@@ -10,9 +10,7 @@ export function CategoriesPage() {
     <div className={`${styles.pageShell} ${styles.stack}`}>
       <section className={`${styles.hero} ${styles.compactHero}`}>
         <h1>Категории</h1>
-        <p className={styles.heroCopy}>
-          Здесь вы можете управлять своими категориями.
-        </p>
+        <p className={styles.heroCopy}>Здесь вы можете управлять своими категориями.</p>
       </section>
 
       <CreateCategoryForm />

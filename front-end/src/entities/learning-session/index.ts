@@ -1,6 +1,4 @@
-export {
-  learningSessionsReducer,
-} from './model/learning-session-slice'
+export { learningSessionsReducer } from './model/learning-session-slice'
 
 export { useLearningSessions } from './lib/use-learning-sessions'
 

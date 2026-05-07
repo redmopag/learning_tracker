@@ -8,8 +8,8 @@
 
   --border: rgba(46, 125, 50, 0.15);
 
-  --accent: #2e7d32;          /* основной зелёный */
-  --accent-strong: #1b5e20;   /* тёмный зелёный */
+  --accent: #2e7d32; /* основной зелёный */
+  --accent-strong: #1b5e20; /* тёмный зелёный */
   --accent-soft: rgba(46, 125, 50, 0.12);
 
   --shadow: 0 18px 60px rgba(46, 125, 50, 0.15);
@@ -29,8 +29,7 @@
 html {
   background:
     radial-gradient(circle at top left, rgba(102, 187, 106, 0.18), transparent 30%),
-    radial-gradient(circle at bottom right, rgba(165, 214, 167, 0.2), transparent 24%),
-    var(--bg);
+    radial-gradient(circle at bottom right, rgba(165, 214, 167, 0.2), transparent 24%), var(--bg);
 }
 
 body {

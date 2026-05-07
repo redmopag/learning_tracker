@@ -83,12 +83,16 @@ export function CreateCourseForm() {
           onChange={(e) => setCategoryId(e.target.value || null)}
         >
           <option value="">Без категории</option>
-          {categories.map(cat => (
-            <option key={cat.id} value={cat.id}>{cat.name}</option>
+          {categories.map((cat) => (
+            <option key={cat.id} value={cat.id}>
+              {cat.name}
+            </option>
           ))}
         </select>
       </label>
-      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>Добавить курс</button>
+      <button type="submit" className={`${styles.button} ${styles.buttonAccent}`}>
+        Добавить курс
+      </button>
     </form>
   )
 }

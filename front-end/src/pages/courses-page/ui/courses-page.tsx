@@ -10,15 +10,13 @@ export function CoursesPage() {
     <div className={`${styles.pageShell} ${styles.stack}`}>
       <section className={`${styles.hero} ${styles.compactHero}`}>
         <h1>Курсы</h1>
-        <p className={styles.heroCopy}>
-          Здесь вы можете управлять своими учебными курсами.
-        </p>
+        <p className={styles.heroCopy}>Здесь вы можете управлять своими учебными курсами.</p>
       </section>
 
       <CreateCourseForm />
-      
+
       {status === 'loading' && <div className={styles.panel}>Загрузка...</div>}
-      
+
       {status === 'success' && <CourseList courses={courses} />}
 
       {status === 'error' && <div className={styles.panel}>Ошибка загрузки курсов.</div>}

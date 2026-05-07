@@ -14,21 +14,24 @@ export function SessionList({ sessions }: SessionListProps) {
   const { books } = useBooks()
 
   const items = useMemo(() => {
-    return sessions.map(session => {
-      const relatedItem = session.type === 'course'
-        ? courses.find(c => c.id === session.relatedItemId)
-        : books.find(b => b.id === session.relatedItemId)
-      
-      return {
-        ...session,
-        relatedItemName: relatedItem?.title ?? 'Неизвестно',
-      }
-    }).sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+    return sessions
+      .map((session) => {
+        const relatedItem =
+          session.type === 'course'
+            ? courses.find((c) => c.id === session.relatedItemId)
+            : books.find((b) => b.id === session.relatedItemId)
+
+        return {
+          ...session,
+          relatedItemName: relatedItem?.title ?? 'Неизвестно',
+        }
+      })
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
   }, [sessions, courses, books])
 
   return (
     <div className={styles.stack}>
-      {items.map(session => (
+      {items.map((session) => (
         <div key={session.id} className={`${styles.panel} ${styles.sectionHeading}`}>
           <div>
             <p className={styles.muted}>{new Date(session.date).toLocaleDateString('ru-RU')}</p>
@@ -36,7 +39,7 @@ export function SessionList({ sessions }: SessionListProps) {
           </div>
           <div className={styles.cardActions}>
             <span className={styles.badge}>{session.duration} мин.</span>
-            <button 
+            <button
               className={styles.buttonGhost}
               onClick={() => deleteLearningSession(session.id)}
             >

@@ -28,7 +28,7 @@ export function CategoryList({ categories }: CategoryListProps) {
 
   return (
     <div className={styles.stack}>
-      {categories.map(category => (
+      {categories.map((category) => (
         <div key={category.id} className={`${styles.panel} ${styles.sectionHeading}`}>
           {editingCategoryId === category.id ? (
             <div className={styles.stackRow}>
@@ -41,21 +41,28 @@ export function CategoryList({ categories }: CategoryListProps) {
                 className={styles.input}
               />
               <div className={styles.cardActions}>
-                <button className={`${styles.button} ${styles.buttonAccent}`} onClick={() => handleSave(category.id)}>Сохранить</button>
-                <button className={styles.buttonGhost} onClick={handleCancel}>Отмена</button>
+                <button
+                  className={`${styles.button} ${styles.buttonAccent}`}
+                  onClick={() => handleSave(category.id)}
+                >
+                  Сохранить
+                </button>
+                <button className={styles.buttonGhost} onClick={handleCancel}>
+                  Отмена
+                </button>
               </div>
             </div>
           ) : (
             <>
               <h4>{category.name}</h4>
               <div className={styles.cardActions}>
-                <button className={`${styles.button} ${styles.buttonAccent}`} onClick={() => handleEdit(category)}>
+                <button
+                  className={`${styles.button} ${styles.buttonAccent}`}
+                  onClick={() => handleEdit(category)}
+                >
                   Редактировать
                 </button>
-                <button
-                  className={styles.buttonGhost}
-                  onClick={() => deleteCategory(category.id)}
-                >
+                <button className={styles.buttonGhost} onClick={() => deleteCategory(category.id)}>
                   Удалить
                 </button>
               </div>
